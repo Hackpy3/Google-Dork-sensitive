@@ -201,7 +201,107 @@ Below is a collection of commonly used Google dorks to uncover sensitive informa
 Here’s an expanded list of Google dorks for discovering exposed version control folders. Remember, these should only be used for ethical purposes, such as testing your own websites or performing authorized security assessments. Misuse can have serious legal and ethical consequences.
 
 ---
+Here’s a list of Google dorks specifically targeting `.htaccess` files. These files are often misconfigured and can expose sensitive information about web servers, configurations, and access rules. Use these dorks responsibly and ethically, and only to assess your own systems or with explicit authorization.
 
+---
+
+### **Common `.htaccess` Dorks**
+
+#### **Find Exposed `.htaccess` Files**
+- **Generic `.htaccess` file search:**
+  ```
+  inurl:.htaccess
+  ```
+
+- **Index of directories containing `.htaccess`:**
+  ```
+  intitle:"index of" ".htaccess"
+  ```
+
+#### **Search for Specific Keywords in `.htaccess`**
+- **`.htaccess` with authentication rules (e.g., passwords):**
+  ```
+  inurl:.htaccess "AuthType"
+  ```
+
+- **`.htaccess` with access restrictions:**
+  ```
+  inurl:.htaccess "deny from"
+  ```
+
+- **`.htaccess` with rewrite rules:**
+  ```
+  inurl:.htaccess "RewriteRule"
+  ```
+
+- **`.htaccess` containing directory indexing rules:**
+  ```
+  inurl:.htaccess "Options Indexes"
+  ```
+
+---
+
+### **Searching for Misconfigured `.htaccess`**
+- **Allow all access (often insecure):**
+  ```
+  inurl:.htaccess "Allow from all"
+  ```
+
+- **Specific IP restrictions:**
+  ```
+  inurl:.htaccess "deny from all" "allow from"
+  ```
+
+- **Cross-origin resource sharing (CORS) configurations:**
+  ```
+  inurl:.htaccess "Header set Access-Control-Allow-Origin"
+  ```
+
+- **Exposed file type exclusions (e.g., blocking `.php`):**
+  ```
+  inurl:.htaccess "-Indexes"
+  ```
+
+---
+
+### **Backup Files of `.htaccess`**
+Backup files of `.htaccess` often reveal sensitive configurations:
+- **Common backup file formats:**
+  ```
+  intitle:"index of" ".htaccess.bak" | ".htaccess.old" | ".htaccess_backup"
+  ```
+
+- **Search for `.htaccess.bak`:**
+  ```
+  inurl:.htaccess.bak
+  ```
+
+- **Search for `.htaccess.old`:**
+  ```
+  inurl:.htaccess.old
+  ```
+
+---
+
+### **Mitigation Tips**
+1. **Restrict Access to `.htaccess`:**
+   Add the following to your Apache configuration to prevent `.htaccess` files from being viewed:
+   ```
+   <Files .htaccess>
+       Require all denied
+   </Files>
+   ```
+
+2. **Avoid Backups on Public Servers:**
+   Never leave backup copies of `.htaccess` files accessible in your web directories.
+
+3. **Regularly Audit Configurations:**
+   Review `.htaccess` files for misconfigurations or overly permissive rules.
+
+4. **Monitor for Exposure:**
+   Use scanning tools or manually check for exposed `.htaccess` files on your servers.
+
+Let me know if you'd like further guidance on securing `.htaccess` files or understanding specific rules!
 ### **Version Control Folders**
 
 #### **Git (.git)**
