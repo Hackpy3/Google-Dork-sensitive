@@ -197,14 +197,6 @@ Below is a collection of commonly used Google dorks to uncover sensitive informa
   inurl:"phpMyAdmin/" | inurl:"pma/"
   ```
 
----
-Here’s an expanded list of Google dorks for discovering exposed version control folders. Remember, these should only be used for ethical purposes, such as testing your own websites or performing authorized security assessments. Misuse can have serious legal and ethical consequences.
-
----
-Here’s a list of Google dorks specifically targeting `.htaccess` files. These files are often misconfigured and can expose sensitive information about web servers, configurations, and access rules. Use these dorks responsibly and ethically, and only to assess your own systems or with explicit authorization.
-
----
-
 ### **Common `.htaccess` Dorks**
 
 #### **Find Exposed `.htaccess` Files**
