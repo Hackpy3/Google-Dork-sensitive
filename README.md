@@ -324,21 +324,109 @@ Here’s an expanded list of Google dorks for discovering exposed version contro
   ```
 
 ---
+Here’s an extended list of Google dorks for finding exposed security cameras or IoT devices. Always remember to use these dorks ethically and responsibly, strictly for research, security assessments, or personal monitoring systems you have permission to access.
 
-### **Tips to Secure Version Control Systems**
-1. **Block access** to version control directories with server configuration files like `.htaccess` or Nginx rules.
-2. **Use `.gitignore` or equivalent** to exclude sensitive files from version control.
-3. **Deploy code securely** to production without version control directories.
-4. **Monitor for accidental exposure** by using tools like Shodan or internal scanners.
+---
 
-Let me know if you want more specific dorks or guidance on securing your servers!
+### **Generic Security Cameras**
+- **Basic live camera feeds:**
+  ```
+  intitle:"Live View / - AXIS"
+  ```
 
-### **Tips for Ethical Usage**
-1. **Always have permission** to test the websites you search.
-2. **Secure your own systems** against these vulnerabilities:
-   - Restrict access to sensitive files.
-   - Disable directory listing.
-   - Use `.htaccess` to block direct access to sensitive directories.
-3. **Report vulnerabilities** to site owners or security teams responsibly.
+- **Common live camera URLs:**
+  ```
+  inurl:view/view.shtml
+  ```
 
-Let me know if you'd like detailed steps on securing systems or reporting vulnerabilities.
+- **Open security camera directories:**
+  ```
+  intitle:"index of" "axis-cgi"
+  ```
+
+---
+
+### **Brand-Specific Cameras**
+#### **Axis Cameras**
+- **Axis camera streams:**
+  ```
+  inurl:/view/view.shtml "axis"
+  ```
+
+- **Axis control pages:**
+  ```
+  inurl:/axis-cgi/jpg/image.cgi
+  ```
+
+#### **Panasonic Cameras**
+- **Panasonic IP cameras:**
+  ```
+  inurl:"MultiCameraFrame?Mode="
+  ```
+
+#### **Sony Cameras**
+- **Sony network cameras:**
+  ```
+  inurl:"/home/homeJ.html"
+  ```
+
+#### **Mobotix Cameras**
+- **Mobotix live streams:**
+  ```
+  inurl:"/control/userimage.html"
+  ```
+
+#### **Linksys Cameras**
+- **Linksys WVC camera streams:**
+  ```
+  inurl:"img/main.cgi"
+  ```
+
+#### **Foscam Cameras**
+- **Foscam live feeds:**
+  ```
+  inurl:"/video.cgi" | inurl:"/videostream.cgi"
+  ```
+
+#### **D-Link Cameras**
+- **D-Link live view pages:**
+  ```
+  inurl:"/view/index.shtml"
+  ```
+
+---
+
+### **RTSP and MJPEG Streams**
+- **MJPEG streams:**
+  ```
+  intitle:"Live View / - AXIS" | ext:mjpeg
+  ```
+
+- **RTSP streams (use with an RTSP viewer):**
+  ```
+  inurl:rtsp://
+  ```
+
+---
+
+### **Publicly Accessible IoT Devices**
+#### **General IoT Devices**
+- **Generic device control panels:**
+  ```
+  intitle:"dashboard" | intitle:"control panel" | inurl:"setup"
+  ```
+
+- **Default login pages:**
+  ```
+  intitle:"login" intext:"default password"
+  ```
+
+#### **Shodan and Censys Indexed Cameras**
+- **Shodan-specific indexed devices:**
+  ```
+  site:shodan.io "webcam"
+  ```
+
+---
+
+
