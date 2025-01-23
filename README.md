@@ -198,6 +198,140 @@ Below is a collection of commonly used Google dorks to uncover sensitive informa
   ```
 
 ---
+Here’s an expanded list of Google dorks for discovering exposed version control folders. Remember, these should only be used for ethical purposes, such as testing your own websites or performing authorized security assessments. Misuse can have serious legal and ethical consequences.
+
+---
+
+### **Version Control Folders**
+
+#### **Git (.git)**
+- **Standard Git directories:**
+  ```
+  intitle:"index of" ".git"
+  ```
+
+- **Search for `HEAD` files in Git repositories:**
+  ```
+  inurl:"/.git/" "HEAD"
+  ```
+
+- **Search for Git config files:**
+  ```
+  inurl:"/.git/config"
+  ```
+
+- **Search for Git logs:**
+  ```
+  inurl:"/.git/logs/"
+  ```
+
+---
+
+#### **Subversion (.svn)**
+- **Standard SVN directories:**
+  ```
+  intitle:"index of" ".svn"
+  ```
+
+- **Search for `entries` files in SVN repositories:**
+  ```
+  inurl:"/.svn/entries"
+  ```
+
+- **Search for SVN `wc.db` files:**
+  ```
+  inurl:"/.svn/wc.db"
+  ```
+
+---
+
+#### **Mercurial (.hg)**
+- **Standard Mercurial directories:**
+  ```
+  intitle:"index of" ".hg"
+  ```
+
+- **Search for `hgrc` config files:**
+  ```
+  inurl:"/.hg/hgrc"
+  ```
+
+- **Search for Mercurial manifests:**
+  ```
+  inurl:"/.hg/store"
+  ```
+
+---
+
+#### **Bazaar (.bzr)**
+- **Standard Bazaar directories:**
+  ```
+  intitle:"index of" ".bzr"
+  ```
+
+- **Search for Bazaar `branch.conf` files:**
+  ```
+  inurl:"/.bzr/branch.conf"
+  ```
+
+- **Search for Bazaar repository files:**
+  ```
+  inurl:"/.bzr/repository"
+  ```
+
+---
+
+#### **CVS (Concurrent Versions System)**
+- **CVS directories:**
+  ```
+  intitle:"index of" "CVS"
+  ```
+
+- **Search for `Root` files in CVS:**
+  ```
+  inurl:"/CVS/Root"
+  ```
+
+- **Search for CVS log files:**
+  ```
+  inurl:"/CVS/Entries"
+  ```
+
+---
+
+#### **Perforce**
+- **Perforce workspace settings:**
+  ```
+  intitle:"index of" "p4config.txt"
+  ```
+
+- **Search for Perforce `.p4ignore` files:**
+  ```
+  inurl:"/.p4ignore"
+  ```
+
+---
+
+#### **RCS (Revision Control System)**
+- **Standard RCS directories:**
+  ```
+  intitle:"index of" "RCS"
+  ```
+
+- **Search for RCS log files:**
+  ```
+  inurl:"/RCS/" ext:log
+  ```
+
+---
+
+### **Tips to Secure Version Control Systems**
+1. **Block access** to version control directories with server configuration files like `.htaccess` or Nginx rules.
+2. **Use `.gitignore` or equivalent** to exclude sensitive files from version control.
+3. **Deploy code securely** to production without version control directories.
+4. **Monitor for accidental exposure** by using tools like Shodan or internal scanners.
+
+Let me know if you want more specific dorks or guidance on securing your servers!
 
 ### **Tips for Ethical Usage**
 1. **Always have permission** to test the websites you search.
